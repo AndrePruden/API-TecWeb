@@ -9,6 +9,6 @@ export const pool = mysql.createPool({
   database: 'budget_db',
   port: 3306, // Puerto predeterminado de MySQL
   ssl: {
-    rejectUnauthorized: true, // Asegúrate de tener configurado SSL si es necesario en Azure
+    rejectUnauthorized: false, // Asegúrate de tener configurado SSL si es necesario en Azure
   },
 });
