@@ -8,7 +8,8 @@ export const getAllEnvelopes = async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM envelopes');
     res.json({ envelopes: rows });
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener los sobres' });
+    console.error('Error en getAllEnvelopes:', error);  // Log detallado
+    res.status(500).json({ message: `Error al obtener los sobres: ${error.message}` });
   }
 };
 
@@ -23,7 +24,8 @@ export const getEnvelopeById = async (id) => {
     }
     return rows[0];
   } catch (error) {
-    throw new Error('Error al obtener el sobre');
+    console.error('Error al obtener sobre:', error);  // Log detallado
+    throw new Error(`Error al obtener el sobre con ID ${id}: ${error.message}`);
   }
 };
 

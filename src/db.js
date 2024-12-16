@@ -11,4 +11,5 @@ export const pool = mysql.createPool({
   ssl: {
     rejectUnauthorized: false, // Asegúrate de tener configurado SSL si es necesario en Azure
   },
+  connectionLimit: 10,
 });
